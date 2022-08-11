@@ -23,12 +23,10 @@ public class Main {
      **/
     static Scanner cin = new Scanner(System.in);
 
-
     /**
      * exec "Words.txt" file to game
      **/
     final static File fileWithWords = new File("Words.txt");
-
 
     /**
      * array for cards executed from file
@@ -36,12 +34,10 @@ public class Main {
     public static String[] originalCard = new String[64];
     public static String[] mixedCards = new String[64];
 
-
     /**
      * after first view after shuffle cards will be covered with these coords
      **/
     public static String[] hiddenBoard;
-
     static {
         hiddenBoard = new String[]{
                 "A1", "A2", "A3", "A4",
@@ -63,12 +59,10 @@ public class Main {
         };
     }
 
-
     /**
      * this array is created for reassigning after wrong guess
      **/
     public static String[] hiddenAgain;
-
     static {
         hiddenAgain = new String[]{
                 "A1", "A2", "A3", "A4",
@@ -90,6 +84,7 @@ public class Main {
         };
     }
 
+    /**     how many pairs to guess you have at specific level      **/
     public static int choosenLevel;
     public static final int easyLevel = 4;
     public static final int hardLevel = 8;
@@ -98,21 +93,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
-
+        /**     looping game        **/
         boolean play = true;
         while (play) {
             mainScreen();
             sleep(5);
-            System.out.println("Hello world!");
-            /**     how many pairs to guess you have at specific level      **/
-            final int easyLevel = 4;
-            final int hardLevel = 8;
-            final int extremeLevel = 16;
-            final int goodLuck = 32;
 
-            /**     which level is selected by player       **/
-
-            /**     and /switch/ define how many attempts player have to win game for any level     **/
+            /**     which level is selected by player and /switch/ define how many attempts player have to win game for any level     **/
             int guessLeft = 0;
             int guessMatch = 0;
             switch (choosenLevel) {
@@ -134,15 +121,17 @@ public class Main {
             }
             String[] arrayWithWords = data.toArray(new String[]{});
 
-
+            /**     generating random word at every card        **/
             for (int i = 0; i < choosenLevel; i++) {
                 originalCard[i] = arrayWithWords[wordGenerator()];
             }
 
-            /**     creating pairs      **/
+            /**     creating pair for every card        **/
             for (int i = choosenLevel; i < cardsAmount; i++) {
                 originalCard[i] = originalCard[i - choosenLevel];
             }
+
+            /**     shuffling cards and printing them to board      **/
             shufflingCards(cardsAmount);
             printBoard(cardsAmount);
 
@@ -262,12 +251,15 @@ public class Main {
                 "\n\n\n\n\n\n\n\n\n\n");
 
         System.out.println(".____________________________.");
-        System.out.println("|    WITAJ W GRZE MEMORY!    |");
+        System.out.println("|        HELLO WORLD!        |");
+        System.out.println("|     MATCHING CARD GAME     |");
         System.out.println(".____________________________.");
 
+        System.out.println("\tWhat do you want to do?\n");
+
         System.out.println("1. Let's play!");
-        System.out.println("2. Highscores");
-        System.out.println("3. About");
+        System.out.println("2. Check highscores");
+        System.out.println("3. Read about");
         System.out.println("4. Quit game");
 
         char selectOptions = cin.next().charAt(0);
