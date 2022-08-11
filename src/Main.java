@@ -113,79 +113,28 @@ public class Main {
         char selectMenuOption = cin.next().charAt(0);
         switch (selectMenuOption) {
             case '1':
-                System.out.println("\nSelect difficulty to play: ");
-                System.out.println("\t1. Easy (4 pairs) ");
-                System.out.println("\t2. Hard (8 pairs) ");
-                System.out.println("\t3. Extreme (16 pairs) ");
-                System.out.println("\t4. GoodLuck (32 pairs) ");
-                System.out.println("\n\t0. Back to menu ");
+                letsPlay();
 
                 char selectDificulty = cin.next().charAt(0);
                 switch (selectDificulty) {
                     case '1':
                         choosenLevel = easyLevel;
-                        System.out.println("Easy level was selected. You have to match 4 pairs and you have 10 chances to do it.");
-                        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
-                        System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
-                        game();
+                        selectEasy();
                         break;
 
                     case '2':
                         choosenLevel = hardLevel;
-                        System.out.println("Easy level was selected. You have to match 8 pairs and you have 15 chances to do it.");
-                        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
-                        System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
-                        game();
+                        selectHard();
                         break;
 
                     case '3':
                         choosenLevel = extremeLevel;
-                        System.out.println("Easy level was selected. You have to match 16 pairs and you have 30 chances to do it.");
-                        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
-                        System.out.println("\n\t\tBest of luck\n\t\t(b ᵔ▽ᵔ)b");
-                        game();
+                        selectExtreme();
                         break;
 
                     case '4':
                         choosenLevel = goodLuck;
-                        System.out.println("'Good luck' level was selected. You have to match 32 pairs and you have 50 chances to do it.");
-                        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
-                        System.out.println("You will lose if you use all your chances.");
-                        System.out.println("\n\t\tBest of luck\n\t\t(b ᵔ▽ᵔ)b");
-                        sleep(2);
-                        System.out.println("""
-                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-                                ░░░░░░░░░░░░░░░░░░░░░░████████░░░░░░░░░
-                                ░░███████░░░░░░░░░░███▒▒▒▒▒▒▒▒███░░░░░░
-                                ░░█▒▒▒▒▒▒█░░░░░░░███▒▒▒▒▒▒▒▒▒▒▒▒███░░░░
-                                ░░░█▒▒▒▒▒▒█░░░░██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░░
-                                ░░░░█▒▒▒▒▒█░░░██▒▒▒▒▄██▄▒▒▒▒▄██▄▒▒▒███░
-                                ░░░░░█▒▒▒█░░░█▒▒▒▒▒▒████▒▒▒▒████▒▒▒▒▒██
-                                ░░░█████████████▒▒▒▒▀██▀▒▒▒▒▀██▀▒▒▒▒▒██
-                                ░░░█▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒██
-                                ░██▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒██▒▒▒▒▒▒▒▒▒██▒▒▒▒██
-                                ██▒▒▒███████████▒▒▒▒▒██▒▒▒▒▒▒▒██▒▒▒▒▒██
-                                █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒███████▒▒▒▒▒▒▒██
-                                ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░
-                                ░█▒▒▒███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░░░
-                                ░██▒▒▒▒▒▒▒▒▒▒▒███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█░░░░░
-                                ░░████████████░░░████████████████░░░░░░
-                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-                                ░░▄█████▄░▄███████▄░▄███████▄░██████▄░░
-                                ░░██▒▒▒▒█░███▒▒▒███░███▒▒▒███░██▒▒▒██░░
-                                ░░██▒▒▒▒▒░██▒▒▒▒▒██░██▒▒▒▒▒██░██▒▒▒██░░
-                                ░░██▒▒▒▀█░███▒▒▒███░███▒▒▒███░██▒▒▒██░░
-                                ░░▀█████▀░▀███████▀░▀███████▀░██████▀░░
-                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-                                ░░░░██▒▒▒▒░██▒▒▒██░▄█████░██▒▒▒▒██▀░░░░
-                                ░░░░██▒▒▒▒░██▒▒▒██░██▀▒▒▒░██▒▒▒██░░░░░░
-                                ░░░░██▒▒▒▒░██▒▒▒██░██▒▒▒▒░█████▀░░░░░░░
-                                ░░░░██▒▒▒▒░██▄▒▄██░██▄▒▒▒░██▒▒▒██░░░░░░
-                                ░░░░▀█████░▀█████▀░▀█████░██▒▒▒▒██▄░░░░
-                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░""");
-                        sleep(2);
-                        game();
-
+                       selectGoodLuck();
                         break;
 
                     case '0':
@@ -200,7 +149,7 @@ public class Main {
 
             case '2':
                 System.out.println("\t|\tWork hard, have fun, make history.");
-                sleep(1);
+                Thread.sleep(2000);
                 highScores();
                 System.out.println("\n\t\tWork hard, have fun, make history. ~ Jeff Bezos, Amazon founder\n");
                 Thread.sleep(2000);
@@ -228,7 +177,7 @@ public class Main {
                 System.out.println("\t- Carefully enter card coordinates that you want to be revealed.");
                 System.out.println("\t- If you make mistake, you can crash the game.");
                 System.out.println("\t- Enjoy!");
-                Thread.sleep(2000);
+                Thread.sleep(3000);
                 System.out.println("\n");
                 System.out.println("\t\t- I'm so sorry for every bug you will find.");
                 System.out.println("\t\t- I'm trying to fix all bugs.");
@@ -331,7 +280,7 @@ public class Main {
                             System.out.println("Guesses left: " + guessLeft);
                             continue first;
 
-                        } else if (stringContainsItemFromList(firstGuess, hiddenBoard)) {
+                        } else if (checkArrayContainsElement(firstGuess, hiddenBoard)) {
                             hiddenBoard[findIndex(hiddenBoard, firstGuess)] =
                                     mixedCards[findIndex(hiddenBoard, firstGuess)];
                             firstGuess = mixedCards[findIndex(hiddenAgain, guessBufor)];
@@ -360,7 +309,7 @@ public class Main {
                                 System.out.println("Guesses left: " + guessLeft);
                                 continue second;
 
-                            } else if (stringContainsItemFromList(secondGuess, hiddenBoard)) {
+                            } else if (checkArrayContainsElement(secondGuess, hiddenBoard)) {
                                 hiddenBoard[findIndex(hiddenBoard, secondGuess)] =
                                         mixedCards[findIndex(hiddenBoard, secondGuess)];
                                 secondGuess = mixedCards[findIndex(hiddenAgain, guessBufor)];
@@ -422,6 +371,74 @@ public class Main {
         } while(play);
     }
 
+    public static void letsPlay(){
+        System.out.println("\nSelect difficulty to play: ");
+        System.out.println("\t1. Easy (4 pairs) ");
+        System.out.println("\t2. Hard (8 pairs) ");
+        System.out.println("\t3. Extreme (16 pairs) ");
+        System.out.println("\t4. GoodLuck (32 pairs) ");
+        System.out.println("\n\t0. Back to menu ");
+    }
+
+    /**     * printing messages after choosing level difficulty       **/
+    public static void selectEasy() throws FileNotFoundException, InterruptedException {
+        System.out.println("Easy level was selected. You have to match 8 pairs and you have 15 chances to do it.");
+        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
+        System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
+        game();
+    }
+    public static void selectHard() throws FileNotFoundException, InterruptedException {
+        System.out.println("Hard level was selected. You have to match 8 pairs and you have 15 chances to do it.");
+        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
+        System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
+        game();
+    }
+    public static void selectExtreme() throws FileNotFoundException, InterruptedException {
+        System.out.println("Easy level was selected. You have to match 8 pairs and you have 15 chances to do it.");
+        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
+        System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
+        game();
+    }
+    public static void selectGoodLuck() throws FileNotFoundException, InterruptedException {
+        System.out.println("'Good luck' level was selected. You have to match 32 pairs and you have 50 chances to do it.");
+        System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
+        System.out.println("You will lose if you use all your chances.");
+        System.out.println("\n\t\tBest of luck\n\t\t(b ᵔ▽ᵔ)b");
+        Thread.sleep(2000);
+        System.out.println("""
+                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                ░░░░░░░░░░░░░░░░░░░░░░████████░░░░░░░░░
+                                ░░███████░░░░░░░░░░███▒▒▒▒▒▒▒▒███░░░░░░
+                                ░░█▒▒▒▒▒▒█░░░░░░░███▒▒▒▒▒▒▒▒▒▒▒▒███░░░░
+                                ░░░█▒▒▒▒▒▒█░░░░██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░░
+                                ░░░░█▒▒▒▒▒█░░░██▒▒▒▒▄██▄▒▒▒▒▄██▄▒▒▒███░
+                                ░░░░░█▒▒▒█░░░█▒▒▒▒▒▒████▒▒▒▒████▒▒▒▒▒██
+                                ░░░█████████████▒▒▒▒▀██▀▒▒▒▒▀██▀▒▒▒▒▒██
+                                ░░░█▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒██
+                                ░██▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒██▒▒▒▒▒▒▒▒▒██▒▒▒▒██
+                                ██▒▒▒███████████▒▒▒▒▒██▒▒▒▒▒▒▒██▒▒▒▒▒██
+                                █▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒███████▒▒▒▒▒▒▒██
+                                ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░
+                                ░█▒▒▒███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██░░░
+                                ░██▒▒▒▒▒▒▒▒▒▒▒███▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█░░░░░
+                                ░░████████████░░░████████████████░░░░░░
+                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                ░░▄█████▄░▄███████▄░▄███████▄░██████▄░░
+                                ░░██▒▒▒▒█░███▒▒▒███░███▒▒▒███░██▒▒▒██░░
+                                ░░██▒▒▒▒▒░██▒▒▒▒▒██░██▒▒▒▒▒██░██▒▒▒██░░
+                                ░░██▒▒▒▀█░███▒▒▒███░███▒▒▒███░██▒▒▒██░░
+                                ░░▀█████▀░▀███████▀░▀███████▀░██████▀░░
+                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+                                ░░░░██▒▒▒▒░██▒▒▒██░▄█████░██▒▒▒▒██▀░░░░
+                                ░░░░██▒▒▒▒░██▒▒▒██░██▀▒▒▒░██▒▒▒██░░░░░░
+                                ░░░░██▒▒▒▒░██▒▒▒██░██▒▒▒▒░█████▀░░░░░░░
+                                ░░░░██▒▒▒▒░██▄▒▄██░██▄▒▒▒░██▒▒▒██░░░░░░
+                                ░░░░▀█████░▀█████▀░▀█████░██▒▒▒▒██▄░░░░
+                                ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░""");
+        sleep(2);
+        game();
+    }
+
     /**     * printing gameboard to check words to guess        **/
     public static void printBoard(int printing) {
         for (int i = 0; i < printing; i++) {
@@ -442,9 +459,9 @@ public class Main {
     }   // end of printHiddenBoard()
 
     /**     * checking is guessed coord at game board       **/
-    public static boolean stringContainsItemFromList(String typed, String[] elements) {
+    public static boolean checkArrayContainsElement(String typed, String[] elements) {
         return Arrays.stream(elements).anyMatch(typed::contains);
-    }   // end of stringContainsItemFromList()
+    }   // end of checkArrayContainsElement()
 
     /**     * finding array index of guessed coords       **/
     public static int findIndex(String[] array, String typed) {
@@ -506,7 +523,7 @@ public class Main {
             Thread.sleep(time);
         } catch (InterruptedException reallyIgnored) {
         }
-        System.out.println("\n\n\n\n\n\n\n\n\n\n");
+        System.out.println("\n\n\n\n\n");
     }   // end of sleep()
 
     /**     * Work hard, have fun, make history. ~ Jeff Bezos, Amazon founder       **/
