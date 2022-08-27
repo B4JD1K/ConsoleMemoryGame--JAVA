@@ -88,7 +88,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         mainScreen();
         game();
-    }
+    }   // end of main()
 
 
     /**     * main screen options       */
@@ -117,34 +117,27 @@ public class Main {
 
                 char selectDificulty = cin.next().charAt(0);
                 switch (selectDificulty) {
-                    case '1':
+                    case '1' -> {
                         choosenLevel = easyLevel;
                         selectEasy();
-                        break;
-
-                    case '2':
+                    }
+                    case '2' -> {
                         choosenLevel = hardLevel;
                         selectHard();
-                        break;
-
-                    case '3':
+                    }
+                    case '3' -> {
                         choosenLevel = extremeLevel;
                         selectExtreme();
-                        break;
-
-                    case '4':
+                    }
+                    case '4' -> {
                         choosenLevel = goodLuck;
-                       selectGoodLuck();
-                        break;
-
-                    case '0':
-                        mainScreen();
-                        break;
-
-                    default:
+                        selectGoodLuck();
+                    }
+                    case '0' -> mainScreen();
+                    default -> {
                         System.out.println("This option does not exist!");
                         mainScreen();
-
+                    }
                 }
 
             case '2':
@@ -195,7 +188,6 @@ public class Main {
                 mainScreen();
         }
     }   // end of mainScreen()
-
     public static void game() throws FileNotFoundException, InterruptedException {
 
         /**     looping game        **/
@@ -369,8 +361,7 @@ public class Main {
             if (answer.equals("y") || answer.equals("yes"))
                 play = true;
         } while(play);
-    }
-
+    }    // end of game()
     public static void letsPlay(){
         System.out.println("\nSelect difficulty to play: ");
         System.out.println("\t1. Easy (4 pairs) ");
@@ -378,7 +369,7 @@ public class Main {
         System.out.println("\t3. Extreme (16 pairs) ");
         System.out.println("\t4. GoodLuck (32 pairs) ");
         System.out.println("\n\t0. Back to menu ");
-    }
+    }    // end of letsPlay()
 
     /**     * printing messages after choosing level difficulty       **/
     public static void selectEasy() throws FileNotFoundException, InterruptedException {
@@ -386,19 +377,19 @@ public class Main {
         System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
         System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
         game();
-    }
+    }    // end of selectEasy()
     public static void selectHard() throws FileNotFoundException, InterruptedException {
         System.out.println("Hard level was selected. You have to match 8 pairs and you have 15 chances to do it.");
         System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
         System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
         game();
-    }
+    }    // end of selectHard()
     public static void selectExtreme() throws FileNotFoundException, InterruptedException {
         System.out.println("Easy level was selected. You have to match 8 pairs and you have 15 chances to do it.");
         System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
         System.out.println("You will lose if you use all your chances.\n\n\t\tGood luck!");
         game();
-    }
+    }    // end of selectExtreme()
     public static void selectGoodLuck() throws FileNotFoundException, InterruptedException {
         System.out.println("'Good luck' level was selected. You have to match 32 pairs and you have 50 chances to do it.");
         System.out.println("You have " + choosenLevel + " seconds to remember all pairs");
@@ -437,7 +428,7 @@ public class Main {
                                 ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░""");
         sleep(2);
         game();
-    }
+    }    // end of selectGoodLuck()
 
     /**     * printing gameboard to check words to guess        **/
     public static void printBoard(int printing) {
